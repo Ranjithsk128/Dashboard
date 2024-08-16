@@ -1,0 +1,260 @@
+:root {
+    --primary: #4a90e2;
+    --secondary: #50c878;
+    --accent: #ff6b6b;
+    --background: #2c3e50;
+    --sidebar: #34495e;
+    --text-light: #ecf0f1;
+    --text-dark: #2c3e50;
+    --card-bg: #3498db;
+    --card-bg-alt: #e74c3c;
+    --button-primary: #f39c12;
+    --button-hover: #d35400;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--text-light);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: var(--sidebar);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar:hover {
+    width: 27%;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .profile {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(41, 128, 185, 0.3);
+}
+
+.sidebar .profile .icon {
+    margin: 10px 0;
+    font-size: 2.5rem;
+    color: var(--accent);
+    animation: pulse 2s infinite, rainbow 5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes rainbow {
+    0% { color: #ff6b6b; }
+    25% { color: #feca57; }
+    50% { color: #48dbfb; }
+    75% { color: #ff9ff3; }
+    100% { color: #ff6b6b; }
+}
+
+.menu {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    display: block;
+    padding: 15px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.4s ease;
+}
+
+.menu-item:hover::before {
+    left: 100%;
+}
+
+.menu-item:hover {
+    background-color: var(--accent);
+    color: var(--text-dark);
+    transform: translateX(10px);
+}
+
+.menu-item i {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover i {
+    transform: rotate(360deg);
+}
+
+.logout {
+    padding: 20px;
+    text-align: center;
+    background-color: gold;
+}
+
+.logout a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.logout a:hover {
+    color: red;
+}
+
+.content {
+    width: 75%;
+    padding: 30px;
+    background-color: var(--background);
+    overflow-y: auto;
+}
+
+.skills, .my-courses {
+    margin-bottom: 30px;
+}
+
+.skills h2, .my-courses h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+}
+
+.skills h2::after, .my-courses h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.skills h2:hover::after, .my-courses h2:hover::after {
+    width: 100%;
+}
+
+.courses, .course-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.course, .card {
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.course:nth-child(even), .card:nth-child(even) {
+    background-color: var(--card-bg-alt);
+}
+
+.course i, .card i {
+    font-size: 2.5rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.course:hover i, .card:hover i {
+    transform: scale(1.2) rotate(360deg);
+}
+
+.course p, .card span {
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: var(--button-primary);
+    border: none;
+    color: var(--text-dark);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.4s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+}
+
+.course:hover, .card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.course, .card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.course:nth-child(1), .card:nth-child(1) { animation-delay: 0.1s; }
+.course:nth-child(2), .card:nth-child(2) { animation-delay: 0.2s; }
+.course:nth-child(3), .card:nth-child(3) { animation-delay: 0.3s; }
+.course:nth-child(4), .card:nth-child(4) { animation-delay: 0.4s; }
